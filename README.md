@@ -1,3 +1,9 @@
-Flask webapp that has a login/logout and signup ,linked w sqlite.
-Used jinja2 
-Install requirements.txt before using
+#Flask webapp that has a login/logout and signup ,linked w **sqlite**. 
+##Install **requirements.txt** before using
+
+```
+
+pip install requirements.txt
+
+```
+
