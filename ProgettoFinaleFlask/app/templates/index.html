@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Expense tracker</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.2/dist/sweetalert2.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		.card {
+			border: none;
+			border-radius: 10px
+		}
+
+		.c-details span {
+			font-weight: 300;
+			font-size: 13px
+		}
+
+		.icon {
+			width: 50px;
+			height: 50px;
+			background-color: #eee;
+			border-radius: 15px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 39px
+		}
+
+		.badge span {
+			background-color: #fffbec;
+			max-width: 60px;
+			height: 25px;
+			padding-bottom: 3px;
+			border-radius: 5px;
+			display: flex;
+			justify-content: center;
+			align-items: center
+		}
+	</style>
+	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+	<div class="wrapper d-flex align-items-stretch">
+		{% include "navbar.html" %}
+		<!-- Page Content  -->
+		<div id="content" class="p-4 p-md-5">
+			{% include "navbar2.html" %}
+			<div class="container mt-5">
+				<div class="row">
+					<div class="col-md-4 col-sm-12">
+						<div class="card p-3 mb-2">
+							<div class="d-flex justify-content-between">
+								<div class="d-flex flex-row align-items-center text-success">
+									<div class="icon"> <i class="fa fa-money"></i> </div>
+									<div class="ms-2 c-details ml-1">
+										<h6 class="mb-0">Income</h6>
+										<div class="badge"></div>
+									</div>
+								</div>
+							</div>
+							<div class="mt-5">
+								<h3 class="heading">
+									<span id="_income">{{income}}</span>
+								</h3>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-12">
+						<div class="card p-3 mb-2">
+							<div class="d-flex justify-content-between">
+								<div class="d-flex flex-row align-items-center text-danger">
+									<div class="icon"> <i class="fa fa-money"></i> </div>
+									<div class="ms-2 c-details ml-1">
+										<h6 class="mb-0">Expenses</h6>
+										<div class="badge"></div>
+									</div>
+								</div>
+							</div>
+							<div class="mt-5">
+								<h3 class="heading">
+									<span id="_expense">{{expenses}}</span>
+								</h3>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-12">
+						<div class="card p-3 mb-2">
+							<div class="d-flex justify-content-between">
+								<div class="d-flex flex-row align-items-center text-warning">
+									<div class="icon"> <i class="fa fa-money"></i> </div>
+									<div class="ms-2 c-details ml-1">
+										<h6 class="mb-0">Balance</h6>
+										<div class="badge"></div>
+									</div>
+								</div>
+							</div>
+							<div class="mt-5">
+								<h3 class="heading">
+									<span id="_balance">{{income-expenses}}</span>
+								</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div id="curve_chart" class="w-100"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.2/dist/sweetalert2.all.min.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<disabled><!--
+		// check if user has visited the site before
+		// if first time, ask user for their name and store in local storage
+		if (localStorage.getItem("name") == null) {
+			Swal.fire({
+				title: 'Welcome!',
+				text: 'Please enter your name',
+				input: 'text',
+				inputAttributes: {
+					autocapitalize: 'off'
+				},
+				showCancelButton: false,
+				confirmButtonText: 'Submit',
+				showLoaderOnConfirm: true,
+				preConfirm: (name) => {
+					localStorage.setItem("name", name);
+					document.getElementById("greeting").innerHTML = "Hello " + name;
+				},
+				allowOutsideClick: () => !Swal.isLoading()
+			})
+			console.log(localStorage.getItem("name") + " is null");
+		} else {
+			console.log(localStorage.getItem("name") + " is not null");
+			document.getElementById("greeting").innerHTML = " <i class='fa fa-user'></i> Hello " + localStorage.getItem("name");
+		}-->
+	</disabled>
+</body>
+
+</html>

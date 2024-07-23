@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Expense tracker - History</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.2/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="wrapper d-flex align-items-stretch">
+        {% include "navbar.html" %}
+        <!-- Page Content  -->
+        <div id="content" class="p-4 p-md-5">
+            {% include "navbar2.html" %}
+            <div class="container">
+                <div class="header-container">
+                    <h3 class="section-header">Transaction History</h3>
+                </div>
+                <main class="row d-md-flex d-sm-block justify-content-center mx-2">
+                    <table class="table table-responsive table-borderless">
+                        <tr>
+                            <th>Transactions</th>
+                            <th>Date
+                            </th>
+                            <th>Amount
+                            </th>
+                            <th>IN/OUT
+                            </th>
+                        </tr>
+                        {% for dato in dati %}
+                        <tr>
+                            <td>{{dato.tipo}}</td>
+                            <td>{{dato.data}}</td>
+                            <td>{{dato.ammontare}}</td>
+                            {%if dato.spesa_guada == "expense"%}
+                            <td>
+                                <img width="8" alt="Red-dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Red-dot.svg/8px-Red-dot.svg.png?20231123203037">
+                            </td>
+                            {%else%}
+                            <td>
+                                <img width="8" alt="Green dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Green_dot.svg/256px-Green_dot.svg.png?20080108003838">
+                            </td>
+                            {%endif%}
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </main>
+            </div>
+        </div>
+    </div>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.2/dist/sweetalert2.all.min.js"></script>
+
+</body>
+
+</html>
